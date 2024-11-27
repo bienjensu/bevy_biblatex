@@ -19,10 +19,8 @@ assert_eq!(author[0].name, "Tolkien");
 ```
 */
 
-#![deny(missing_docs)]
-
 mod chunk;
-mod macros;
+pub mod macros;
 mod mechanics;
 mod raw;
 mod resolve;
