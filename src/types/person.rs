@@ -4,11 +4,13 @@ use std::fmt::{self, Display, Formatter};
 use crate::{chunk::*, Spanned};
 use crate::{Type, TypeError};
 
+use bevy::prelude::*;
+
 /// An author, editor, or some other person affiliated with a cited work.
 ///
 /// When parsed through [`Person::parse`], the whitespace is trimmed from the
 /// fields.
-#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd)]
+#[derive(Debug, Clone, Eq, PartialEq, Ord, PartialOrd, Component)]
 pub struct Person {
     /// The surname / family name / last name.
     pub name: String,

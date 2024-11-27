@@ -6,8 +6,10 @@ use crate::chunk::*;
 use crate::{Span, Spanned, Type, TypeError, TypeErrorKind};
 use unscanny::Scanner;
 
+use bevy::prelude::*;
+
 /// A date or a range of dates and their certainty and exactness.
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Component)]
 pub struct Date {
     /// The date or the date range.
     pub value: DateValue,
@@ -18,7 +20,7 @@ pub struct Date {
 }
 
 /// A single date or a range of dates.
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Component)]
 pub enum DateValue {
     /// A single date.
     At(Datetime),
@@ -33,7 +35,7 @@ pub enum DateValue {
 /// Timezone-unaware date and time.
 ///
 /// Must specify a year and may specify month, day, and time.
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Component)]
 pub struct Datetime {
     /// The year.
     ///
@@ -50,7 +52,7 @@ pub struct Datetime {
 }
 
 /// A potentially timezone aware time.
-#[derive(Debug, Copy, Clone, Eq, PartialEq)]
+#[derive(Debug, Copy, Clone, Eq, PartialEq, Component)]
 pub struct Time {
     /// The hour (0-23).
     pub hour: u8,
